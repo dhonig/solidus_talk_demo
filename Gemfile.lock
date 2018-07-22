@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/boomerdigital/solidus_graphql.git
-  revision: 5554c4b62d94cfc06604e0c339c152a1b89700db
-  branch: master
-  specs:
-    solidus_graphql (0.0.1)
-      graphql (~> 1.8)
-      solidus_core (~> 2.6.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -364,6 +355,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   graphiql-rails
+  graphql (~> 1.8)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
@@ -372,7 +364,6 @@ DEPENDENCIES
   selenium-webdriver
   solidus (~> 2.6.0)
   solidus_auth_devise
-  solidus_graphql!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
