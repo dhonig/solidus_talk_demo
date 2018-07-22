@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/boomerdigital/solidus_graphql.git
-  revision: 587c92f7a8142a8b24ea471f1c1bd57ae35b82d3
+  revision: 5554c4b62d94cfc06604e0c339c152a1b89700db
   branch: master
   specs:
     solidus_graphql (0.0.1)
-      graphql (~> 1.7)
+      graphql (~> 1.8)
       solidus_core (~> 2.6.0)
 
 GEM

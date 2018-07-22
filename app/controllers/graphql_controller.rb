@@ -1,10 +1,4 @@
 class GraphqlController < ApplicationController
-
-
-  #APIs dont really need this
-  skip_before_action :verify_authenticity_token
-
-
   def execute
     variables = ensure_hash(params[:variables])
     query = params[:query]
