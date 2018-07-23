@@ -1,12 +1,12 @@
 module Solidus
   module GraphQL
     CurrencyType = ::GraphQL::ObjectType.define do
-      name "Currency"
+      graphql_name "Currency"
 
-      field :iso_code, types.String
-      field :name,     types.String
-      field :symbol,   types.String
-      field :subunit,  types.String
+      field :iso_code, String, null: true
+      field :graphql_name, String, null: true
+      field :symbol, String, null: true
+      field :subunit, String, null: true
     end
   end
 end

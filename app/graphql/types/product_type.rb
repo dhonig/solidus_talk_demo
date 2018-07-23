@@ -1,29 +1,23 @@
 module Solidus
   module GraphQL
     ProductType = ::GraphQL::ObjectType.define do
-      name "Product"
+      graphql_name "Product"
 
-      field :id,          types.ID
-      field :name,        types.String
-      field :description, types.String
-      field :master,      VariantType
-      field :slug,        types.String
-      field :images,      types[ImageType]
-      field :option_types, OptionType.connection_type
+      field :id, ID, null: true
+      field :graphql_name, String, null: true
+      field :description, String, null: true
+      field :master, VariantType, null: true
+      field :slug, String, null: true
+      field :images, [ImageType, null: true], null: true
+      field :option_types, OptionType.connection_type, null: true
 
-
-      field :variants, VariantType.connection_type do
+      field :variants, VariantType.connection_type, null: true do
         resolve VariantResolver::ByProduct
       end
 
-
-      field :option_values_by_option_type, OptionValueType.connection_type do
+      field :option_values_by_option_type, OptionValueType.connection_type, null: true do
         resolve ProductResolver::OptionValues
       end
-
-
-
-
     end
   end
 end

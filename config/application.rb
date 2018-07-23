@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 module SolidusTalkDemo
   class Application < Rails::Application
 
+
+    require_relative '../app/graphql/all'
+
     config.to_prepare do
       # Load application's model / class decorators
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|

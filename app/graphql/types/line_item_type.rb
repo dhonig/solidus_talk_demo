@@ -2,11 +2,11 @@ require_relative 'variant_type'
 module Solidus
   module GraphQL
     LineItemType = ::GraphQL::ObjectType.define do
-      graphql_name "LineItem"
+      graphql_graphql_name "LineItem"
 
-      field :id, !types.ID
+      field :id, ID, null: false
 
-      field :variant, !VariantType do
+      field :variant, VariantType, null: false do
         resolve VariantResolver::ByLineItem
       end
     end

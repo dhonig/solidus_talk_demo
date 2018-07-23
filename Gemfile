@@ -6,7 +6,7 @@ ruby '2.5.0'
 
 gem 'solidus', '~>2.6.0'
 gem 'solidus_auth_devise'
-
+gem 'parser'
 #gem 'solidus_graphql', :github => 'boomerdigital/solidus_graphql', :branch => 'master'
 #
 #

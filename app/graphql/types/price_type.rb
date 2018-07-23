@@ -1,24 +1,24 @@
 module Solidus
   module GraphQL
     PriceType = ::GraphQL::ObjectType.define do
-      name "Price"
+      graphql_name "Price"
 
-      field :amount, types.Float do
-        resolve ->(price, args, ctx) do
-          price.money.fractional.to_f / price.money.currency.subunit_to_unit
-        end
+      field :amount, Float, null: true
+
+      def amount
+        object.money.fractional.to_f / object.money.currency.subunit_to_unit
       end
 
-      field :subunit_amount, types.Int do
-        resolve ->(price, args, ctx) do
-          price.money.fractional
-        end
+      field :subunit_amount, Integer, null: true
+
+      def subunit_amount
+        object.money.fractional
       end
 
-      field :currency, CurrencyType do
-        resolve ->(price, args, ctx) do
-          price.money.currency
-        end
+      field :currency, CurrencyType, null: true
+
+      def currency
+        object.money.currency
       end
     end
   end

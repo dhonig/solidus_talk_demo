@@ -1,7 +1,7 @@
 module Solidus
   module GraphQL
     class Attachment < ::GraphQL::Schema::Object
-      graphql_name "Attachment"
+    graphql_name "Attachment"
 
       field :id, ID, null: false
       field :url, String, null: false
@@ -15,7 +15,7 @@ module Solidus
       #       attachment.styles.each do |key, array|
       #         array.each do |value|
       #           record=OpenStruct.new(value.attributes)
-      #           record.style_name=key[:name]
+      #           record.style_graphql_name=key[:graphql_name]
       #           values<<record
       #         end
       #       end

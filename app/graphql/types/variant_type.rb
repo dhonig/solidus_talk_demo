@@ -1,31 +1,24 @@
 module Solidus
   module GraphQL
     VariantType = ::GraphQL::ObjectType.define do
-      name "Variant"
+      graphql_name "Variant"
 
-      field :id,   types.ID
-      field :sku,  types.String
-      field :name, types.String
-      field :weight,  types.String
-      field :height,  types.String
-      field :images, types[ImageType]
+      field :id, ID, null: true
+      field :sku, String, null: true
+      field :graphql_name, String, null: true
+      field :weight, String, null: true
+      field :height, String, null: true
+      field :images, [ImageType, null: true], null: true
 
+      field :price, PriceType, null: true
 
-
-
-      field :price, PriceType do
-        resolve ->(variant, args, ctx) do
-          variant.product.price_for(Pricing.current_options(ctx))
-        end
+      def price
+        object.product.price_for(Pricing.current_options(context))
       end
 
-      field :product, ProductType do
+      field :product, Solidus::ProductType, null: true do
         resolve ProductResolver::ByVariant
       end
-
-
-
-
     end
   end
 end

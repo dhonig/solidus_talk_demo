@@ -1,14 +1,13 @@
 require_relative 'line_item_type'
 
-OrderType = GraphQL::ObjectType.define do
-  name "Order"
+class OrderType < Types::BaseObject
+  graphql_name "Order"
 
-  field :id, !types.ID
+  field :id, ID, null: false
 
-  field :line_items, !types[LineItemType] do
+  field :line_items, [LineItemType, null: true], null: false do
     resolve LineItemResolver::ByOrder
   end
-
 
   resolve VariantResolver::ByLineItem
 end

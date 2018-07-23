@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
 
-  post "/graphql", to: "graphql#execute"
+
 
   post "/graphql", to: "graphql#execute"
   # This line mounts Solidus's routes at the root of your application.

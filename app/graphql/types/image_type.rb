@@ -2,8 +2,8 @@ module Solidus
   module GraphQL
 
     ImageType = ::GraphQL::ObjectType.define do
-      name "Image"
-      field :attachment, Attachment
+      graphql_name "Image"
+      field :attachment, Attachment, null: true
     end
   end
 end

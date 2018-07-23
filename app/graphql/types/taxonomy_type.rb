@@ -1,19 +1,19 @@
 module Solidus
   module GraphQL
     TaxonomyType = ::GraphQL::ObjectType.define do
-      name "Taxonomy"
+      graphql_name "Taxonomy"
 
-      field :id,          types.ID
-      field :name,        types.String
-      field :position,    types.Int
+      field :id, ID, null: true
+      field :graphql_name, String, null: true
+      field :position, Integer, null: true
 
-      field :root_taxon, TaxonType do
-        resolve ->(taxonomy, args, ctx) do
-          taxonomy.root
-        end
+      field :root_taxon, TaxonType, null: true
+
+      def root_taxon
+        object.root
       end
 
-      connection :taxons, TaxonType.connection_type do
+      field :taxons, TaxonType.connection_type, null: true, connection: true do
         resolve TaxonResolver::ByTaxonomy
       end
     end

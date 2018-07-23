@@ -1,15 +1,15 @@
 module Solidus
   module GraphQL
     TaxonType = ::GraphQL::ObjectType.define do
-      name "Taxon"
+      graphql_name "Taxon"
 
-      field :id,          types.ID
-      field :name,        types.String
-      field :permalink,   types.String
-      field :pretty_name, types.String
-      field :seo_title,   types.String
+      field :id, ID, null: true
+      field :graphql_name, String, null: true
+      field :permalink, String, null: true
+      field :pretty_graphql_name, String, null: true
+      field :seo_title, String, null: true
 
-      connection :products, ProductType.connection_type do
+      field :products, ProductType.connection_type, null: true, connection: true do
         resolve ProductResolver::ByTaxon
       end
     end
